@@ -1,15 +1,14 @@
 package org.example.patient.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -21,7 +20,11 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Temporal(TemporalType.DATE)
     private Date dateNaissance;
     private boolean malade;
     private int score;
+    @OneToMany(mappedBy = "patient"  ,fetch = FetchType.EAGER)
+    private Collection<RendezVous> rendezVous;
+
 }

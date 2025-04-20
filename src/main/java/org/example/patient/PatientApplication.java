@@ -1,6 +1,8 @@
 package org.example.patient;
 
+import org.example.patient.entities.Medecin;
 import org.example.patient.entities.Patient;
+import org.example.patient.repo.MedecinRepo;
 import org.example.patient.repo.PatientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -10,26 +12,38 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @SpringBootApplication
 public class PatientApplication  implements CommandLineRunner {
     @Autowired
     private PatientRepo patientRepo;
+    @Autowired
+    private MedecinRepo medecinRepo;
+
     public static void main(String[] args) {
         SpringApplication.run(PatientApplication.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
-        patientRepo.save(new Patient(null, "Hassan", Date.valueOf("2000-10-10"), false, 5));
-        patientRepo.save(new Patient(null, "Amina", Date.valueOf("2001-01-01"), true, 6));
-        patientRepo.save(new Patient(null, "Yassine", Date.valueOf("2002-02-02"), false, 7));
-        patientRepo.save(new Patient(null, "Omar", Date.valueOf("2003-03-03"), true, 8));
-        patientRepo.save(new Patient(null, "Yasmine", Date.valueOf("2004-04-04"), false, 9));
+       patientRepo.save(Patient.builder().name("P1").dateNaissance(new Date(2000, 1, 1)).score(10).malade(true).build());
+       patientRepo.save(Patient.builder().name("P2").dateNaissance(new Date(2000, 1, 1)).score(10).malade(true).build());
+       patientRepo.save(Patient.builder().name("P3").dateNaissance(new Date(2000, 1, 1)).score(10).malade(true).build());
+        patientRepo.save(Patient.builder().name("P4").dateNaissance(new Date(2000, 1, 1)).score(10).malade(true).build());
+        patientRepo.save(Patient.builder().name("P5").dateNaissance(new Date(2000, 1, 1)).score(10).malade(true).build());
         List<Patient> patients = patientRepo.findAll();
      patients.forEach( p->{
          System.out.println(p.toString());
              });
+     //medecin
+        Stream.of("aymane","mohamed").forEach(name->{
+            Medecin m = new Medecin();
+            m.setNom(name);
+            m.setEmail(name+"@gmail.com");
+            m.setSpecialite(Math.random()>0.5?"cardiologue":"dentiste");
+            medecinRepo.save(m);
+        });
      Patient p = patientRepo.findById(1L).get();
      System.out.println("************");
      System.out.println(p.getId());
