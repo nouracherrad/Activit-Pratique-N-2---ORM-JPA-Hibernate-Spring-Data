@@ -219,12 +219,9 @@ GET http://localhost:8080/patients/1
 
 **Noura**
 Étudiante en Master Systèmes Distribués et Intelligence Artificielle
-📧 [noura@example.com](mailto:noura@example.com)
+📧 [nouracherrad722@gmail.com](mailto:noura@example.com)
 🔗 [Mon GitHub](https://github.com/votre-utilisateur)
 
 ```
 
----
 
-Souhaites-tu que je t’aide à ajouter aussi une image de ton diagramme de classes ou des captures d’écran de ton code dans ce README ?
-```
