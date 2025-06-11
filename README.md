@@ -1,6 +1,4 @@
-Bien sûr Noura ! Voici **tout le contenu précédent** déjà formaté **en Markdown** prêt à être utilisé dans un fichier `README.md` :
 
-````markdown
 # 🏥 Système de Gestion des Patients - Spring Boot Application
 
 Ce projet est une application Java Spring Boot permettant de gérer les patients, les médecins, les rendez-vous et les consultations médicales. Il illustre les bases d'une architecture RESTful utilisant Spring Data JPA, Lombok, les relations entre entités et l'initialisation de données à l'exécution.
