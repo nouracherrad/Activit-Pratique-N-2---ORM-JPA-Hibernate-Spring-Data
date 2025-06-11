@@ -218,10 +218,10 @@ GET http://localhost:8080/patients/1
 ## 👤 Auteur
 
 **Noura**
+
+
 Étudiante en Master Systèmes Distribués et Intelligence Artificielle
 📧 [nouracherrad722@gmail.com](mailto:noura@example.com)
-🔗 [Mon GitHub](https://github.com/votre-utilisateur)
 
-```
 
 
